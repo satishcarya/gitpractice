@@ -1,0 +1,10 @@
+ntp
+postfix
+sshd
+chrony
+satish_arya
+satish
+apache
+tss
+darkstat
+satish1
