@@ -1,0 +1,286 @@
+--- !ruby/object:Puppet::Transaction::Report
+  metrics: 
+    resources: !ruby/object:Puppet::Util::Metric
+      name: resources
+      label: Resources
+      values: 
+        - - total
+          - Total
+          - 8
+        - - skipped
+          - Skipped
+          - 0
+        - - failed
+          - Failed
+          - 1
+        - - failed_to_restart
+          - "Failed to restart"
+          - 0
+        - - restarted
+          - Restarted
+          - 0
+        - - changed
+          - Changed
+          - 0
+        - - out_of_sync
+          - "Out of sync"
+          - 1
+        - - scheduled
+          - Scheduled
+          - 0
+    time: !ruby/object:Puppet::Util::Metric
+      name: time
+      label: Time
+      values: 
+        - - schedule
+          - Schedule
+          - 0.000366614
+        - - package
+          - Package
+          - 9.209761758
+        - - filebucket
+          - Filebucket
+          - 9.294e-05
+        - - config_retrieval
+          - "Config retrieval"
+          - 0.050877399
+        - - total
+          - Total
+          - 9.261098711000002
+    changes: !ruby/object:Puppet::Util::Metric
+      name: changes
+      label: Changes
+      values: 
+        - - total
+          - Total
+          - 0
+    events: !ruby/object:Puppet::Util::Metric
+      name: events
+      label: Events
+      values: 
+        - - total
+          - Total
+          - 1
+        - - failure
+          - Failure
+          - 1
+        - - success
+          - Success
+          - 0
+  logs: 
+    - !ruby/object:Puppet::Util::Log
+      level: !ruby/sym err
+      tags: 
+        - err
+      message: "Could not prefetch package provider 'yum': The yum provider can only be used as root"
+      source: Puppet
+      time: 2018-06-19 10:11:57.492157 +00:00
+    - !ruby/object:Puppet::Util::Log
+      level: !ruby/sym err
+      tags: 
+        - err
+      message: "Execution of '/bin/yum -d 0 -e 0 -y install htop' returned 1: You need to be root to perform this command."
+      source: Puppet
+      time: 2018-06-19 10:12:06.705310 +00:00
+    - !ruby/object:Puppet::Util::Log
+      level: !ruby/sym err
+      tags: 
+        - err
+        - package
+        - htop
+        - class
+      message: "change from absent to present failed: Execution of '/bin/yum -d 0 -e 0 -y install htop' returned 1: You need to be root to perform this command."
+      source: /Stage[main]/Main/Package[htop]/ensure
+      time: 2018-06-19 10:12:06.705770 +00:00
+      file: /etc/puppet/manifests/instapp.pp
+      line: 3
+    - !ruby/object:Puppet::Util::Log
+      level: !ruby/sym notice
+      tags: 
+        - notice
+      message: "Finished catalog run in 9.22 seconds"
+      source: Puppet
+      time: 2018-06-19 10:12:06.713092 +00:00
+  resource_statuses: 
+    Schedule[daily]: !ruby/object:Puppet::Resource::Status
+      resource: Schedule[daily]
+      file: 
+      line: 
+      evaluation_time: 7.9673e-05
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - schedule
+        - daily
+      time: 2018-06-19 10:11:57.491160 +00:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: Schedule
+      title: daily
+      skipped: false
+      failed: false
+      containment_path: 
+        - Schedule[daily]
+    Schedule[monthly]: !ruby/object:Puppet::Resource::Status
+      resource: Schedule[monthly]
+      file: 
+      line: 
+      evaluation_time: 3.6432e-05
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - schedule
+        - monthly
+      time: 2018-06-19 10:11:57.491347 +00:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: Schedule
+      title: monthly
+      skipped: false
+      failed: false
+      containment_path: 
+        - Schedule[monthly]
+    Schedule[hourly]: !ruby/object:Puppet::Resource::Status
+      resource: Schedule[hourly]
+      file: 
+      line: 
+      evaluation_time: 3.2293e-05
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - schedule
+        - hourly
+      time: 2018-06-19 10:11:57.491440 +00:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: Schedule
+      title: hourly
+      skipped: false
+      failed: false
+      containment_path: 
+        - Schedule[hourly]
+    Package[htop]: !ruby/object:Puppet::Resource::Status
+      resource: Package[htop]
+      file: /etc/puppet/manifests/instapp.pp
+      line: 3
+      evaluation_time: 9.209761758
+      change_count: 0
+      out_of_sync_count: 1
+      tags: 
+        - package
+        - htop
+        - class
+      time: 2018-06-19 10:11:57.496090 +00:00
+      events: 
+        - !ruby/object:Puppet::Transaction::Event
+          audited: false
+          property: ensure
+          previous_value: !ruby/sym absent
+          desired_value: !ruby/sym present
+          historical_value: 
+          message: "change from absent to present failed: Execution of '/bin/yum -d 0 -e 0 -y install htop' returned 1: You need to be root to perform this command."
+          name: !ruby/sym package_installed
+          status: failure
+          time: 2018-06-19 10:12:06.705648 +00:00
+      out_of_sync: true
+      changed: false
+      resource_type: Package
+      title: htop
+      skipped: false
+      failed: true
+      containment_path: 
+        - Stage[main]
+        - Main
+        - Package[htop]
+    Schedule[never]: !ruby/object:Puppet::Resource::Status
+      resource: Schedule[never]
+      file: 
+      line: 
+      evaluation_time: 9.1678e-05
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - schedule
+        - never
+      time: 2018-06-19 10:12:06.706702 +00:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: Schedule
+      title: never
+      skipped: false
+      failed: false
+      containment_path: 
+        - Schedule[never]
+    Filebucket[puppet]: !ruby/object:Puppet::Resource::Status
+      resource: Filebucket[puppet]
+      file: 
+      line: 
+      evaluation_time: 9.294e-05
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - filebucket
+        - puppet
+      time: 2018-06-19 10:12:06.706951 +00:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: Filebucket
+      title: puppet
+      skipped: false
+      failed: false
+      containment_path: 
+        - Filebucket[puppet]
+    Schedule[weekly]: !ruby/object:Puppet::Resource::Status
+      resource: Schedule[weekly]
+      file: 
+      line: 
+      evaluation_time: 5.6479e-05
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - schedule
+        - weekly
+      time: 2018-06-19 10:12:06.707121 +00:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: Schedule
+      title: weekly
+      skipped: false
+      failed: false
+      containment_path: 
+        - Schedule[weekly]
+    Schedule[puppet]: !ruby/object:Puppet::Resource::Status
+      resource: Schedule[puppet]
+      file: 
+      line: 
+      evaluation_time: 7.0059e-05
+      change_count: 0
+      out_of_sync_count: 0
+      tags: 
+        - schedule
+        - puppet
+      time: 2018-06-19 10:12:06.707277 +00:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: Schedule
+      title: puppet
+      skipped: false
+      failed: false
+      containment_path: 
+        - Schedule[puppet]
+  host: gitpractice.c.steam-canto-775.internal
+  time: 2018-06-19 10:11:57.485942 +00:00
+  kind: apply
+  report_format: 4
+  puppet_version: "3.8.7"
+  configuration_version: 1529403116
+  transaction_uuid: dcf678eb-ff7b-43d5-b4cf-b20b0fb92ffe
+  environment: production
+  status: failed
